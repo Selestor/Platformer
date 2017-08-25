@@ -28,7 +28,9 @@ public class Player : MonoBehaviour {
 
     private void Update()
     {
-        timeText.text = "Time left: " + (Mathf.Round(60 - Time.timeSinceLevelLoad))  + " seconds!";
+        float timeLeft = (Mathf.Round(60 - Time.timeSinceLevelLoad));
+        timeText.text = "Time left: " + timeLeft  + " seconds!";
+        if (timeLeft <= 0) GameOver("Time's up!");
 
         if (Input.GetKeyDown("escape"))
         {
@@ -62,11 +64,16 @@ public class Player : MonoBehaviour {
     {
         if (lettersCollected >= 6)
         {
-            gameObject.SetActive(false);
-            victoryText.text = "Your time: " + Time.timeSinceLevelLoad + " seconds!";
-            menuPanel.SetActive(true);
-            SavePlayerPrefs();
+            GameOver("Your time: " + Time.timeSinceLevelLoad + " seconds!");
         }
+    }
+
+    void GameOver(string message)
+    {
+        gameObject.SetActive(false);
+        victoryText.text = message;
+        menuPanel.SetActive(true);
+        SavePlayerPrefs();
     }
 
     private void SavePlayerPrefs()
