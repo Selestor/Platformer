@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour {
 
@@ -10,11 +11,51 @@ public class Player : MonoBehaviour {
     public float moveSpeed = 5;
     public float speedLimit = 5;
 
+    public Text victoryText;
+    public Text timeText;
+    public GameObject menuPanel;
+    public bool paused = false;
+
     private short lettersCollected = 0;
 
     private void Start()
     {
         rb2d = GetComponent<Rigidbody2D>();
+        victoryText.text = "";
+        timeText.text = "Time left: 60" + " seconds!";
+        Unpause();
+    }
+
+    private void Update()
+    {
+        timeText.text = "Time left: " + (Mathf.Round(60 - Time.timeSinceLevelLoad))  + " seconds!";
+
+        if (Input.GetKeyDown("escape"))
+        {
+            if (paused == true)
+            {
+                Unpause();
+            }
+            else
+            {
+                Pause();
+            }
+        }
+    }
+
+    private void Pause()
+    {
+        Time.timeScale = 0.0f;
+        timeText.text = Time.time.ToString();
+        menuPanel.SetActive(true);
+        paused = true;
+    }
+
+    private void Unpause()
+    {
+        Time.timeScale = 1.0f;
+        menuPanel.SetActive(false);
+        paused = false;
     }
 
     void IsGameOver()
@@ -22,6 +63,7 @@ public class Player : MonoBehaviour {
         if (lettersCollected >= 6)
         {
             gameObject.SetActive(false);
+            victoryText.text = "Your time: " + Time.timeSinceLevelLoad + " seconds!";
         }
     }
 
