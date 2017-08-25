@@ -64,7 +64,25 @@ public class Player : MonoBehaviour {
         {
             gameObject.SetActive(false);
             victoryText.text = "Your time: " + Time.timeSinceLevelLoad + " seconds!";
+            menuPanel.SetActive(true);
+            SavePlayerPrefs();
         }
+    }
+
+    private void SavePlayerPrefs()
+    {
+        if (!PlayerPrefs.HasKey("Best Time"))
+            PlayerPrefs.SetFloat("Best Time", Time.timeSinceLevelLoad);
+        else
+        {
+            if (PlayerPrefs.GetFloat("Best Time") > Time.timeSinceLevelLoad)
+                PlayerPrefs.SetFloat("Best Time", Time.timeSinceLevelLoad);
+        }
+
+        if (PlayerPrefs.HasKey("Games Played"))
+            PlayerPrefs.SetInt("Games Played", PlayerPrefs.GetInt("Games Played") + 1);
+        else PlayerPrefs.SetInt("Games Played", 1);
+        PlayerPrefs.Save();
     }
 
     void FixedUpdate ()

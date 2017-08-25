@@ -78,21 +78,23 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Scripts\ActiveStateToggler.cs" />
-    <Compile Include="Assets\Scripts\ApplicationManager.cs" />
     <Compile Include="Assets\Scripts\CameraMovement.cs" />
-    <Compile Include="Assets\Scripts\ChangeColor.cs" />
-    <Compile Include="Assets\Scripts\DragMe.cs" />
-    <Compile Include="Assets\Scripts\DragPanel.cs" />
-    <Compile Include="Assets\Scripts\DropMe.cs" />
+    <Compile Include="Assets\Scripts\ChangeAvatarImage.cs" />
     <Compile Include="Assets\Scripts\LoadSceneOnClick.cs" />
-    <Compile Include="Assets\Scripts\PanelManager.cs" />
+    <Compile Include="Assets\Scripts\OnStatisticsOpen.cs" />
     <Compile Include="Assets\Scripts\Player.cs" />
-    <Compile Include="Assets\Scripts\QuitOnClick.cs" />
-    <Compile Include="Assets\Scripts\ResizePanel.cs" />
-    <Compile Include="Assets\Scripts\ScrollDetailTexture.cs" />
-    <Compile Include="Assets\Scripts\ShowSliderValue.cs" />
-    <Compile Include="Assets\Scripts\TiltWindow.cs" />
+    <Compile Include="Assets\Unity Samples UI\Scripts\ActiveStateToggler.cs" />
+    <Compile Include="Assets\Unity Samples UI\Scripts\ApplicationManager.cs" />
+    <Compile Include="Assets\Unity Samples UI\Scripts\ChangeColor.cs" />
+    <Compile Include="Assets\Unity Samples UI\Scripts\DragMe.cs" />
+    <Compile Include="Assets\Unity Samples UI\Scripts\DragPanel.cs" />
+    <Compile Include="Assets\Unity Samples UI\Scripts\DropMe.cs" />
+    <Compile Include="Assets\Unity Samples UI\Scripts\PanelManager.cs" />
+    <Compile Include="Assets\Unity Samples UI\Scripts\QuitOnClick.cs" />
+    <Compile Include="Assets\Unity Samples UI\Scripts\ResizePanel.cs" />
+    <Compile Include="Assets\Unity Samples UI\Scripts\ScrollDetailTexture.cs" />
+    <Compile Include="Assets\Unity Samples UI\Scripts\ShowSliderValue.cs" />
+    <Compile Include="Assets\Unity Samples UI\Scripts\TiltWindow.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Unity Samples UI\Fonts\Jupiter\LICENSE.txt" />
