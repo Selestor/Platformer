@@ -10,12 +10,17 @@ public class OnStatisticsOpen : MonoBehaviour {
 
     public void StatisticsUpdate()
     {
-        if (PlayerPrefs.HasKey("Best Time"))
-            bestTime.text = "The Best Time: " + PlayerPrefs.GetFloat("Best Time");
-        else bestTime.text = "The Best Time: " + "???";
+        PlayerSettings.Profile currentProfile = PlayerSettings.settings.profileList.Find(i => i.isCurrent == true);
 
-        if (PlayerPrefs.HasKey("Games Played"))
-            gamesPlayed.text = "Games Played: " + PlayerPrefs.GetInt("Games Played");
-        else gamesPlayed.text = "Games Played: " + 0;
+        if (currentProfile != null)
+        {
+            bestTime.text = "The Best Time: " + currentProfile.bestTime;
+            gamesPlayed.text = "Games Played: " + currentProfile.gamesPlayed;
+        }
+        else
+        {
+            bestTime.text = "The Best Time: " + "???";
+            gamesPlayed.text = "Games Played: " + "???";
+        }
     }
 }

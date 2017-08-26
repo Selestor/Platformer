@@ -80,9 +80,15 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\CameraMovement.cs" />
     <Compile Include="Assets\Scripts\ChangeAvatarImage.cs" />
+    <Compile Include="Assets\Scripts\CreateNewProfile.cs" />
+    <Compile Include="Assets\Scripts\DeleteProfile.cs" />
+    <Compile Include="Assets\Scripts\HideIfEmpty.cs" />
     <Compile Include="Assets\Scripts\LoadSceneOnClick.cs" />
+    <Compile Include="Assets\Scripts\OnProfileOpen.cs" />
     <Compile Include="Assets\Scripts\OnStatisticsOpen.cs" />
     <Compile Include="Assets\Scripts\Player.cs" />
+    <Compile Include="Assets\Scripts\PlayerSettings.cs" />
+    <Compile Include="Assets\Scripts\SetCurrentProfile.cs" />
     <Compile Include="Assets\Unity Samples UI\Scripts\ActiveStateToggler.cs" />
     <Compile Include="Assets\Unity Samples UI\Scripts\ApplicationManager.cs" />
     <Compile Include="Assets\Unity Samples UI\Scripts\ChangeColor.cs" />

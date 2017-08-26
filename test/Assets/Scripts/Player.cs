@@ -15,6 +15,7 @@ public class Player : MonoBehaviour {
     public Text timeText;
     public GameObject menuPanel;
     public bool paused = false;
+    public string profileName;
 
     private short lettersCollected = 0;
 
@@ -78,18 +79,12 @@ public class Player : MonoBehaviour {
 
     private void SavePlayerPrefs()
     {
-        if (!PlayerPrefs.HasKey("Best Time"))
-            PlayerPrefs.SetFloat("Best Time", Time.timeSinceLevelLoad);
-        else
-        {
-            if (PlayerPrefs.GetFloat("Best Time") > Time.timeSinceLevelLoad)
-                PlayerPrefs.SetFloat("Best Time", Time.timeSinceLevelLoad);
-        }
+        PlayerSettings.Profile currentProfile = PlayerSettings.settings.profileList.Find(i => i.isCurrent == true);
 
-        if (PlayerPrefs.HasKey("Games Played"))
-            PlayerPrefs.SetInt("Games Played", PlayerPrefs.GetInt("Games Played") + 1);
-        else PlayerPrefs.SetInt("Games Played", 1);
-        PlayerPrefs.Save();
+        if (currentProfile.bestTime > Time.timeSinceLevelLoad)
+            currentProfile.bestTime = Time.timeSinceLevelLoad;
+
+        currentProfile.gamesPlayed++;
     }
 
     void FixedUpdate ()
