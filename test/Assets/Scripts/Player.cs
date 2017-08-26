@@ -81,10 +81,13 @@ public class Player : MonoBehaviour {
     {
         PlayerSettings.Profile currentProfile = PlayerSettings.settings.profileList.Find(i => i.isCurrent == true);
 
-        if (currentProfile.bestTime > Time.timeSinceLevelLoad)
-            currentProfile.bestTime = Time.timeSinceLevelLoad;
+        if (currentProfile != null)
+        {
+            if (currentProfile.bestTime > Time.timeSinceLevelLoad)
+                currentProfile.bestTime = Time.timeSinceLevelLoad;
 
-        currentProfile.gamesPlayed++;
+            currentProfile.gamesPlayed++;
+        }
     }
 
     void FixedUpdate ()
