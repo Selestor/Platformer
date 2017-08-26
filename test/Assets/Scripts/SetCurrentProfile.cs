@@ -7,13 +7,19 @@ using UnityEngine.UI;
 public class SetCurrentProfile : MonoBehaviour {
 
     public Dropdown dropdown;
+    public RawImage image;
 
     public void CurrentProfile()
     {
         string currentProfileName = dropdown.captionText.text;
         foreach (PlayerSettings.Profile profile in PlayerSettings.settings.profileList)
         {
-            if (profile.profileName == currentProfileName) profile.isCurrent = true;
+            if (profile.profileName == currentProfileName)
+            {
+                profile.isCurrent = true;
+                WWW www = new WWW(profile.avatarPath);
+                image.texture = www.texture;
+            }
             else profile.isCurrent = false;
         }
     }

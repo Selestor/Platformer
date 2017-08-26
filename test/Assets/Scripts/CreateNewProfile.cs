@@ -19,6 +19,7 @@ public class CreateNewProfile : MonoBehaviour {
             profile.gamesPlayed = 0;
             profile.bestTime = 60;
             profile.isCurrent = false;
+            profile.avatarPath = "";
             PlayerSettings.settings.profileList.Add(profile);
             dropdown.options.Add(new Dropdown.OptionData() { text = profile.profileName });
             dropdown.value = 1;

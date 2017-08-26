@@ -12,6 +12,7 @@ public class PlayerSettings : MonoBehaviour {
         public int gamesPlayed;
         public float bestTime;
         public bool isCurrent;
+        public string avatarPath;
     }
 
     public List<Profile> profileList;
