@@ -18,7 +18,8 @@ public class SetCurrentProfile : MonoBehaviour {
             {
                 profile.isCurrent = true;
                 WWW www = new WWW(profile.avatarPath);
-                image.texture = www.texture;
+                if (profile.avatarPath != "") image.texture = www.texture;
+                else image.texture = null;
             }
             else profile.isCurrent = false;
         }

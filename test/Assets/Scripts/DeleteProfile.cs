@@ -11,8 +11,10 @@ public class DeleteProfile : MonoBehaviour {
     public void Delete()
     {
         dropdown.options.RemoveAt(dropdown.value);
-        image.material.mainTexture = null;
-        PlayerSettings.settings.profileList.Remove(PlayerSettings.settings.profileList.Find(i => i.profileName == dropdown.captionText.text));
+        image.texture = null;
+        PlayerSettings.Profile profile = PlayerSettings.settings.profileList.Find(i => i.profileName == dropdown.captionText.text);
+        PlayerSettings.settings.profileList.Remove(profile);
+        dropdown.value = 1;
         dropdown.value = 0;
     }
 }

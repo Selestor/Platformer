@@ -13,8 +13,10 @@ public class OnProfileOpen : MonoBehaviour {
         int id = 0;
         int selectedId = 0;
         string avatar = "";
+
         image.texture = null;
         dropdown.options.Clear();
+
         foreach (PlayerSettings.Profile profile in PlayerSettings.settings.profileList)
         {
             if (profile.isCurrent)

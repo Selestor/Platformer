@@ -14,12 +14,18 @@ public class ChangeAvatarButton : MonoBehaviour {
         if (currentProfile != null)
         {
             currentProfile.avatarPath = EditorUtility.OpenFilePanel("", "", "png");
-
+           
             if (currentProfile.avatarPath != "")
             {
-                WWW www = new WWW(currentProfile.avatarPath);
-                image.texture = www.texture;
+                StartCoroutine(FinishDownload(currentProfile.avatarPath));
             }
         }
+    }
+
+    public IEnumerator FinishDownload(string url)
+    {
+        WWW www = new WWW(url);
+        yield return www;
+        image.texture = www.texture;
     }
 }

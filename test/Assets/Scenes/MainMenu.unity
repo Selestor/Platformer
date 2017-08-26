@@ -1797,7 +1797,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dropdown: {fileID: 1316410296}
-  image: {fileID: 0}
+  image: {fileID: 1102686636}
 --- !u!114 &925816812
 MonoBehaviour:
   m_ObjectHideFlags: 0

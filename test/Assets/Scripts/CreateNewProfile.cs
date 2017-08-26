@@ -8,10 +8,10 @@ public class CreateNewProfile : MonoBehaviour {
 
 	public void CreateProfile()
     {
-        string name = profileName.text.ToString();
+        string name = profileName.text;
 
         if (PlayerSettings.settings.profileList.Find(i => i.profileName == name) != null)
-            print("Profile named " + name + "already exists.");
+            print("Profile named " + name + " already exists.");
         else
         {
             PlayerSettings.Profile profile = new PlayerSettings.Profile();
