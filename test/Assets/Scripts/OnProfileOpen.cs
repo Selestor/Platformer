@@ -7,9 +7,15 @@ public class OnProfileOpen : MonoBehaviour {
 
     public Dropdown dropdown;
     public RawImage image;
+    public InputField inputField;
 
 	public void UpdateDropdown()
     {
+#if UNITY_EDITOR
+        inputField.gameObject.SetActive(false);
+#else
+        inputField.gameObject.SetActive(true);
+#endif
         int id = 0;
         int selectedId = 0;
         string avatar = "";

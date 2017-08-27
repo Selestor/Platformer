@@ -10,6 +10,7 @@ using UnityEditor;
 public class ChangeAvatarButton : MonoBehaviour {
 
     public RawImage image;
+    public InputField inputField;
 
     public void ChangeAvatar()
     {
@@ -18,6 +19,8 @@ public class ChangeAvatarButton : MonoBehaviour {
         {
 #if UNITY_EDITOR
             currentProfile.avatarPath = EditorUtility.OpenFilePanel("", "", "png");
+#else
+            currentProfile.avatarPath = inputField.text;
 #endif
             if (currentProfile.avatarPath != "")
             {
