@@ -13,8 +13,9 @@ public class ChangeAvatarButton : MonoBehaviour {
         PlayerSettings.Profile currentProfile = PlayerSettings.settings.profileList.Find(i => i.isCurrent == true);
         if (currentProfile != null)
         {
+#if UNITY_EDITOR
             currentProfile.avatarPath = EditorUtility.OpenFilePanel("", "", "png");
-           
+#endif
             if (currentProfile.avatarPath != "")
             {
                 StartCoroutine(FinishDownload(currentProfile.avatarPath));
